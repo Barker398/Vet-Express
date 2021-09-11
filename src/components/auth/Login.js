@@ -1,24 +1,17 @@
-import React, { useRef, useState } from "react"
-import { Link, useHistory } from "react-router-dom";
+import React, { useRef } from "react"
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 import "./Login.css"
 
 
 export const Login = () => {
-    const [loginUser, setLoginUser] = useState({ email: "" })
-    const [existDialog, setExistDialog] = useState(false)
-
+    const email = useRef()
+    const password = useRef()
+    const existDialog = useRef()
     const history = useHistory()
 
-    const handleInputChange = (event) => {
-        const newUser = { ...loginUser }
-        newUser[event.target.id] = event.target.value
-        setLoginUser(newUser)
-    }
-
-
     const existingUserCheck = () => {
-        // If your json-server URL is different, please change it below!
-        return fetch(`http://localhost:8088/users?email=${loginUser.email}`)
+        return fetch(`http://localhost:8088/users?email=${email.current.value}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }
@@ -29,20 +22,19 @@ export const Login = () => {
         existingUserCheck()
             .then(exists => {
                 if (exists) {
-                    // The user id is saved under the key VetExpress_user in session Storage. Change below if needed!
-                    sessionStorage.setItem("VetExpress_user", exists.id)
+                    localStorage.setItem("VetExpress_user", exists.id)
                     history.push("/")
                 } else {
-                    setExistDialog(true)
+                    existDialog.current.showModal()
                 }
             })
     }
 
     return (
         <main className="container--login">
-            <dialog className="dialog dialog--auth" open={existDialog}>
+            <dialog className="dialog dialog--auth" ref={existDialog}>
                 <div>User does not exist</div>
-                <button className="button--close" onClick={e => setExistDialog(false)}>Close</button>
+                <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
@@ -50,13 +42,19 @@ export const Login = () => {
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
-                        <input type="email"
+                        <input ref={email} type="email"
                             id="email"
                             className="form-control"
                             placeholder="Email address"
-                            required autoFocus
-                            value={loginUser.email}
-                            onChange={handleInputChange} />
+                            required autoFocus />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="inputPassword"> Password </label>
+                        <input ref={password} type="password"
+                            id="password"
+                            className="form-control"
+                            placeholder="password"
+                            required autoFocus />
                     </fieldset>
                     <fieldset>
                         <button type="submit">
@@ -66,7 +64,7 @@ export const Login = () => {
                 </form>
             </section>
             <section className="link--register">
-                <Link to="/register">Register for an account</Link>
+                <Link to="/register">Not a member yet?</Link>
             </section>
         </main>
     )

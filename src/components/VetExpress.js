@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-// import { ApplicationViews } from "./ApplicationViews";
+import { ApplicationViews } from "../ApplicationViews";
 import { NavBar } from "./nav/NavBar";
 import { Login } from "./auth/Login";
-import { Register } from "./auth/Register";
+// import { Register } from "./auth/Register";
 import "./VetExpress.css";
 
 export const VetExpress = () => (
@@ -14,7 +14,7 @@ export const VetExpress = () => (
           return (
             <>
               <NavBar />
-            
+              <ApplicationViews />
             </>
           );
         } else {
@@ -26,8 +26,8 @@ export const VetExpress = () => (
     <Route path="/login">
       <Login />
     </Route>
-    <Route path="/register">
+    {/* <Route path="/register">
       <Register />
-    </Route>
+    </Route> */}
   </>
 );

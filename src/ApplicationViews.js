@@ -8,8 +8,7 @@ export const ApplicationViews = () => {
         <>
             <ClinicProvider>
                 <Route exact path="/clinics">
-                    <ClinicList />
-                    
+                    <ClinicList />   
                 </Route>
             </ClinicProvider>
         </>

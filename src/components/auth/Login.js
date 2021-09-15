@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom"
 import "./Login.css"
 
 
-export const Login = props => {
+export const Login = () => {
     const userName = useRef()
     const email = useRef()
     const password = useRef()

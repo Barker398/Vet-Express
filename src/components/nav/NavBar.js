@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./NavBar.css"
 
-export const NavBar = (props) => {
+export const NavBar = () => {
   return (
 //   <nav class="navbar navbar-expand-lg navbar-light bg-light">
 //   <div class="container-fluid">

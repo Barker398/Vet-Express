@@ -7,6 +7,8 @@ export const ReviewForm = () => {
     const { getReviews } = useContext(ReviewsContext)
 
     const [review, setReview] = useState({
+        userId: 0,
+        clinicId: 0,
         comment: ""
     });
 
@@ -35,6 +37,8 @@ export const ReviewForm = () => {
         } else {
 
             const newReview = {
+                // userId: review.userId,
+                // clinicId: review.clinicId,
                 comment: review.comment
             }
             addReview(newReview)

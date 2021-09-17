@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import { ClinicContext } from "../clinics/ClinicProvider"
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'
 
 export const ClinicForm = () => {
   const { addClinic } = useContext(ClinicContext)

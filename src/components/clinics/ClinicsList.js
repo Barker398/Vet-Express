@@ -13,7 +13,7 @@ export const ClinicList = () => {
 
     return (
         <>
-            <h1>Top Clinics</h1>
+            <h2>Top Clinics</h2>
             <button onClick={
                 () => history.push("/clinics/create")
             }>

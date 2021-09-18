@@ -6,7 +6,7 @@ export const ClinicProvider = (props) => {
 const [clinics, setClinics] = useState([])
 
 const getClinics = () => {
-    return fetch("http://localhost:8088/clinics")
+    return fetch("http://localhost:8088/clinics/?_embed=reviews")
         .then(res => res.json())
         .then(setClinics)
 }

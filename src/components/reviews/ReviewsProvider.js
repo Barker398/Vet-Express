@@ -11,16 +11,12 @@ const getReviews = () => {
         .then(res => res.json())
         .then(setReviews)
 }
-// const getReviews = async () => {
-//     try {
-//         const response = await fetch(`http://localhost:8080/reviews`);
-//         const reviewClinic = await response.json()
-//         setReviews(reviewClinic)
-//     } catch (error) {
-//         console.error(error)
-//     }
-// };
 
+const getReviewById = (reviewId) => {
+    return fetch(`http://localhost:8088/reviews?id=${reviewId}`)
+    .then(res => res.json())
+    
+}
 
 const addReview = reviewObj => {
     return fetch("http://localhost:8088/reviews", {
@@ -40,9 +36,20 @@ const removeReview = reviewId => {
     .then(getReviews)
 }
 
+const updateReview = review => {
+    return fetch(`http://localhost:8088/reviews/${review.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(review)
+    })
+    .then(getReviews)
+}
+
 return (
     <ReviewsContext.Provider value={{
-        reviews, getReviews, addReview, removeReview
+        reviews, getReviews, addReview, removeReview, updateReview, getReviewById
     }}>
         {props.children}
     </ReviewsContext.Provider>

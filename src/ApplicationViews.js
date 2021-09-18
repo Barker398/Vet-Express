@@ -22,8 +22,11 @@ export const ApplicationViews = () => {
                     <Route path="/clinics/create">
                         <ClinicForm />
                     </Route>
-                    <Route exact path="/clinics/detail/:clinicId(\d+)">
+                    {/* <Route exact path="/clinics/detail/:clinicId(\d+)">
                         <ReviewsList />
+                    </Route> */}
+                    <Route path="/reviews/edit/:reviewId(\d+)">
+                        <ReviewForm />
                     </Route>
                     <Route path="/reviews/create">
                         <ReviewForm />

@@ -1,19 +1,20 @@
 import React, { useContext, useEffect, useState } from "react"
 import { ClinicContext } from "./ClinicProvider"
 import { useHistory, useParams } from "react-router-dom"
+import { ReviewsList } from "../reviews/ReviewsList"
 
 export const ClinicDetail = (props) => {
 
     const history = useHistory()
 
     const { clinics } = useContext(ClinicContext)
-    const [clinic, setClinic] = useState([])
+    const [clinic, setClinic] = useState({ reviews:[] })
 
     const { clinicId } = useParams();
-    console.log(clinic)
+   
 
     useEffect(() => {
-        const thisClinic = clinics.find(c => c.id === parseInt(clinicId)) || { clinic: {} }
+        const thisClinic = clinics.find(c => c.id === parseInt(clinicId)) || { reviews:[] }
         setClinic(thisClinic)
     }, [])
 
@@ -29,6 +30,7 @@ export const ClinicDetail = (props) => {
             <div className="clinic__phoneNumber">Contact: {clinic.phoneNumber}</div>
             <button> favorites: </button>
         </section>
+        <ReviewsList reviews={clinic.reviews}/> 
         </>
     )
 }

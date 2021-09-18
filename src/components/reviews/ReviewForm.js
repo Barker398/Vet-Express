@@ -37,8 +37,8 @@ export const ReviewForm = () => {
         } else {
 
             const newReview = {
-                // userId: review.userId,
-                // clinicId: review.clinicId,
+                userId: review.userId,
+                clinicId: review.clinicId,
                 comment: review.comment
             }
             addReview(newReview)
@@ -56,7 +56,8 @@ export const ReviewForm = () => {
         </div>
       </fieldset>
             
-                <button className="btn btn-primary" onClick={saveReview}>
+                <button className="btn btn-primary" 
+                onClick={saveReview}>
                     Save My Review
                 </button>
         </form>

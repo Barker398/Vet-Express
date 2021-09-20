@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "./NavBar.css"
 
 export const NavBar = () => {
+  
   const history = useHistory()
 
   const handleLogout = () => {

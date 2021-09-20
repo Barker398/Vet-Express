@@ -5,14 +5,17 @@ import { ClinicProvider } from "./components/clinics/ClinicProvider"
 import { ClinicDetail } from "./components/clinics/ClinicsDetail"
 import { ClinicList } from "./components/clinics/ClinicsList"
 import { ReviewsProvider } from "./components/reviews/ReviewsProvider"
-import { ReviewsList } from "./components/reviews/ReviewsList"
 import { ReviewForm } from "./components/reviews/ReviewForm"
+import { HomePage } from "./components/home/HomePage"
 
 export const ApplicationViews = () => {
     return (
         <>
             <ClinicProvider>
                 <ReviewsProvider>
+                    <Route exact path="/home">
+                    <HomePage />
+                    </Route>
                     <Route exact path="/clinics">
                         <ClinicList />
                     </Route>

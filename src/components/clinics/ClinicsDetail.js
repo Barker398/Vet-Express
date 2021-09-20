@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react"
 import { ClinicContext } from "./ClinicProvider"
-import { useHistory, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { ReviewsList } from "../reviews/ReviewsList"
 
-export const ClinicDetail = (props) => {
+export const ClinicDetail = () => {
 
-    const history = useHistory()
+   
 
     const { clinics } = useContext(ClinicContext)
     const [clinic, setClinic] = useState({ reviews:[] })

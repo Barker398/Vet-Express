@@ -14,6 +14,7 @@ export const NavBar = () => {
   }
   return (
     <nav className="navbar bg-dark text-white flex-md-nowrap p-0 shadow">
+      <img className="logo" src="/images/vetLogo.png" />
 
       <ul className="nav nav-pills nav-fill">
         <li className="nav-item">

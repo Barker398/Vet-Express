@@ -1,13 +1,12 @@
 import { useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { ReviewsContext } from "./ReviewsProvider"
+import { ReviewDetail } from "./ReviewDetail"
 import "./ReviewList.css"
 
 export const ReviewsList = (props) => {
 
     const { removeReview } = useContext(ReviewsContext)
-
-
 
     const history = useHistory()
 
@@ -22,7 +21,8 @@ export const ReviewsList = (props) => {
         <>
             <h3>Clinic Reviews</h3>
             <button onClick={
-                () => history.push("/reviews/create")
+                // history.push needs to be edited.
+                () => history.push(`/reviews/create?clinicId=${props.clinicId}`)
             }>
                 Add a Review Here!
             </button>
@@ -30,9 +30,8 @@ export const ReviewsList = (props) => {
             <section className="reviews">
                 {
                     props.reviews.map(review => {
-                        return (
-                            <div className="review" id={`review--${review.comment}`}>
-                                {review.comment}
+                        return ( <div className="review" key={`review--${review.id}`}>
+                                <ReviewDetail key={review.id} clinicId={review.clinicId} review={review} />
                                 <button onClick={ () => handleDelete(review.id)}>
                                     Delete Review
                                 </button>

@@ -1,25 +1,23 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useState } from "react"
 import { ReviewsContext } from "./ReviewsProvider"
-import { useHistory, useParams } from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
+import {ClinicContext} from "../clinics/ClinicProvider"
+
 
 export const ReviewForm = () => {
-    const { addReview } = useContext(ReviewsContext)
-    const { getReviews } = useContext(ReviewsContext)
-
+    const { addReview, updateReview, getReviews } = useContext(ReviewsContext)
+    const {  getClinics } = useContext(ClinicContext)
+   
     const [review, setReview] = useState({
         userId: 0,
         clinicId: 0,
         comment: ""
     });
+    const query = new URLSearchParams(useLocation().search);
 
-    // const { userId } = useParams();
-    // const { clinicId } = useParams();
+    const clinicId = parseInt(query.get("clinicId"))
 
     const history = useHistory();
-
-    useEffect(() => {
-        getReviews()
-    }, [])
 
     const handleControlledInputChange = (event) => {
 
@@ -30,26 +28,66 @@ export const ReviewForm = () => {
         setReview(newReview)
     }
 
-    const saveReview = (event) => {
-        event.preventDefault()
+    // const hnddleSaveReview = (event) => {
+    //     event.preventDefault()
 
-        const reviewId = parseInt(review.id)
-        const userId = parseInt(localStorage.getItem("VetExpress_user"))
-        const clinicId = null
-        if (reviewId === 0) {
-            window.alert("Please leave a Review")
-        } else {
+    //     const reviewId = parseInt(review.id)
+    //     const userId = parseInt(localStorage.getItem("VetExpress_user"))
+    //     const clinicId = parseInt(review.clinicIdd)
+    //     if (reviewId === 0) {
+    //         window.alert("Please leave a Review")
+    //     } else {
 
-            const newReview = {
-                userId: userId,
-                clinicId: clinicId,
-                comment: review.comment
-            }
+    //         const newReview = {
+    //             userId: userId,
+    //             clinicId: clinicId,
+    //             comment: review.comment
+    //         }
                 
-            addReview(newReview)
-                .then(() => history.push("/clinics"))
+    //         addReview(newReview)
+    //             .then(() => history.push(`/clinics/detail/${clinic.id})`)
+        
+    const handleSaveReview = (event) => {
+        event.preventDefault()
+        // const reviewId = parseInt(review.id)
+        const userId = parseInt(localStorage.getItem("VetExpress_user"))
+        
+        
+        if(review.id === 0)
+        {
+            window.alert("Please leave a review")
+        }
+        else
+        {
+            if(review.id)
+            {
+                updateReview({
+                    id: review.id,
+                    userId: review.userId,
+                    clinicId: review.clinicId,
+                    comment: review.comment
+                })
+                .then(() => history.push(`/clinics/detail/${review.clinicId}`))
+            }
+            else
+            {
+                const newReview = {
+                        userId: userId,
+                        clinicId: clinicId,
+                        comment: review.comment
+
+                }
+                addReview(newReview)
+                .then(() => {
+                    history.push(`clinics/detail/${clinicId}`)
+                })
+
+            }
+
         }
     }
+        
+    
 
     return (
         <form className="reviewForm">
@@ -59,11 +97,12 @@ export const ReviewForm = () => {
                     <label htmlFor="comment">Comment:</label>
                     <input type="text" id="comment" required autoFocus className="form-control" placeholder="comment" value={review.comment} onChange={handleControlledInputChange} />
                 </div>
+                <div id="clinicId" value={review.clinicId}></div>
             </fieldset>
 
 
             <button className="btn btn-primary"
-                onClick={saveReview}>
+                onClick={handleSaveReview}>
                 Save My Review
             </button>
         </form>

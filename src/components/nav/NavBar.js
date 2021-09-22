@@ -24,7 +24,7 @@ export const NavBar = () => {
           <Link className="nav-link" to="/clinics">Clinics</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/my clinics">My Clinics</Link>
+          <Link className="nav-link" to="/myclinics">My Clinics</Link>
         </li>
         <li className="nav-item">
           <a className="nav-link"  onClick={handleLogout}>Logout</a>

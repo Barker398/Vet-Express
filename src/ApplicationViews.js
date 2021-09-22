@@ -7,6 +7,7 @@ import { ClinicList } from "./components/clinics/ClinicsList"
 import { ReviewsProvider } from "./components/reviews/ReviewsProvider"
 import { ReviewForm } from "./components/reviews/ReviewForm"
 import { HomePage } from "./components/home/HomePage"
+import { MyClinics } from "./components/profile/MyClinics"
 
 export const ApplicationViews = () => {
     return (
@@ -33,6 +34,9 @@ export const ApplicationViews = () => {
                     </Route>
                     <Route path="/reviews/create">
                         <ReviewForm />
+                    </Route>
+                    <Route exact path="/myclinics">
+                    <MyClinics />
                     </Route>
                 </ReviewsProvider>
             </ClinicProvider>

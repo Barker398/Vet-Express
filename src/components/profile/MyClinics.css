@@ -1,0 +1,11 @@
+.petPhoto {
+    display: block;
+    width: 20%;
+    float: right;
+    border: 5px solid blue;
+}
+
+h3 {
+    display: flex;
+    float: right;
+}

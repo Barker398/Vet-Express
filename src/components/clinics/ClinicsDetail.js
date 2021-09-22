@@ -3,9 +3,8 @@ import { ClinicContext } from "./ClinicProvider"
 import { useParams } from "react-router-dom"
 import { ReviewsList } from "../reviews/ReviewsList"
 
-export const ClinicDetail = () => {
 
-   
+export const ClinicDetail = () => {
 
     const { clinics } = useContext(ClinicContext)
     const [clinic, setClinic] = useState({ reviews:[] })
@@ -29,8 +28,11 @@ export const ClinicDetail = () => {
             <div className="clinic__hours">Hours of Operation: {clinic.hours}</div>
             <div className="clinic__phoneNumber">Contact: {clinic.phoneNumber}</div>
             <button> favorites: </button>
+
         </section>
-        <ReviewsList reviews={clinic.reviews}/> 
+        
+        <ReviewsList reviews={clinic.reviews} clinicId={clinic.id}/> 
+        
         </>
     )
 }

@@ -1,6 +1,6 @@
-import userEvent from "@testing-library/user-event"
+// import userEvent from "@testing-library/user-event"
 import React from "react"
-import { ClinicContext } from "../clinics/ClinicProvider"
+// import { ClinicContext } from "../clinics/ClinicProvider"
 import "./MyClinics.css"
 
 export const MyClinics = () => {

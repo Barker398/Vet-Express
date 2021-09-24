@@ -4,7 +4,7 @@ import { ClinicContext } from "./ClinicProvider"
 import "./ClinicsList.css"
 
 export const ClinicList = () => {
-    const { getClinics, clinics } = useContext(ClinicContext)
+    const { clinics, getClinics } = useContext(ClinicContext)
     const history = useHistory()
 
     useEffect(() => {

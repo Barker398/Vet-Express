@@ -40,7 +40,7 @@ export const Register = () => {
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
                                 localStorage.setItem("VetExpress_user", createdUser.id)
-                                history.push("/")
+                                history.push("/users")
                             }
                         })
                 }

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 export const ClinicForm = () => {
   const { addClinic } = useContext(ClinicContext)
-  const { getClinics } = useContext(ClinicContext)
+  const { clinics, getClinics } = useContext(ClinicContext)
   
 
   const [clinic, setClinic] = useState({
@@ -24,6 +24,11 @@ export const ClinicForm = () => {
   useEffect(() => {
     getClinics()
   }, [])
+
+//   useEffect(() => {
+//     const thisClinic = clinics.find(c => c.id === parseInt(clinic.id)) 
+//     setClinic(thisClinic)
+// }, [clinic])
 
   //when a field changes, update state. The return will re-render and display based on the values in state
   //Controlled component
@@ -67,7 +72,7 @@ export const ClinicForm = () => {
       <fieldset>
         <div className="form-group">
           <label htmlFor="name">Clinic Name:</label>
-          <input type="text" id="name" required autoFocus className="form-control" placeholder="Clinic name" value={clinic.name} onChange={handleControlledInputChange} />
+          <input type="text" id="name" required autoFocus className="form-control" placeholder="Clinic name" value={clinics.name} onChange={handleControlledInputChange} />
         </div>
       </fieldset>
       <fieldset>

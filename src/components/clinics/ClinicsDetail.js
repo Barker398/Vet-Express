@@ -6,17 +6,37 @@ import { ReviewsList } from "../reviews/ReviewsList"
 
 export const ClinicDetail = () => {
 
-    const { clinics } = useContext(ClinicContext)
+    const { clinics, getClinics, favorites, getClinicFavorites, addClinicFavorite } = useContext(ClinicContext)
     const [clinic, setClinic] = useState({ reviews:[] })
+    // const [favorite, setFavorite] = useState([])
+    const [favoriteClinicCount, setFavoriteClinicCount] = useState(0)
+    const currentUser = parseInt(localStorage.getItem("VetExpress_user"));
 
     const { clinicId } = useParams();
    
+    useEffect(() => {
+        getClinics()
+      .then(getClinicFavorites)}, [])
 
     useEffect(() => {
         const thisClinic = clinics.find(c => c.id === parseInt(clinicId)) || { reviews:[] }
         setClinic(thisClinic)
-    }, [])
+    }, [clinics])
 
+    // useEffect(() => {
+    //     const thisClinic = clinics.find(c => c.id === parseInt(clinicId)) || { reviews:[] }
+    //     setClinic(thisClinic)
+    // }, [])
+    const handleClickSaveFavorite = () => {
+        addClinicFavorite({
+            clinicId:clinic.id,
+            userId:currentUser
+        } 
+        )
+       const count = favoriteClinicCount+1
+        setFavoriteClinicCount(count)
+        console.log("num: ", favoriteClinicCount)
+    }
     
     return (
         <>
@@ -27,7 +47,7 @@ export const ClinicDetail = () => {
             <div className="clinic__services">Services Provided: {clinic.services}</div>
             <div className="clinic__hours">Hours of Operation: {clinic.hours}</div>
             <div className="clinic__phoneNumber">Contact: {clinic.phoneNumber}</div>
-            <button> favorites: </button>
+            <button onClick={handleClickSaveFavorite}> favorites: </button>
 
         </section>
         

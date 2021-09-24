@@ -14,7 +14,7 @@ export const NavBar = () => {
   }
   return (
     <nav className="navbar bg-dark text-white flex-md-nowrap p-0 shadow">
-      <img className="logo" src="/images/vetLogo.png" />
+      <img className="logo" src="/images/vetLogo.png" alt="vetLogo"/>
 
       <ul className="nav nav-pills nav-fill">
         <li className="nav-item">
@@ -27,7 +27,7 @@ export const NavBar = () => {
           <Link className="nav-link" to="/myclinics">My Clinics</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link"  onClick={handleLogout}>Logout</a>
+          <Link className="nav-link"  to="/login" onClick={handleLogout}>Logout</Link>
 
         </li>
       </ul>

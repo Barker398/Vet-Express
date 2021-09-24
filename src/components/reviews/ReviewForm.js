@@ -1,18 +1,29 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { ReviewsContext } from "./ReviewsProvider"
 import { useHistory, useLocation } from "react-router-dom"
-import {ClinicContext} from "../clinics/ClinicProvider"
+// import {ClinicContext} from "../clinics/ClinicProvider"
 
 
 export const ReviewForm = () => {
-    const { addReview, updateReview, getReviews } = useContext(ReviewsContext)
-    const {  getClinics } = useContext(ClinicContext)
-   
+    const { addReview, getReviews, updateReview } = useContext(ReviewsContext)
+    // const { clinic } = useContext(ClinicContext)
+
     const [review, setReview] = useState({
         userId: 0,
         clinicId: 0,
         comment: ""
     });
+
+    // const [setIsLoading] = useState(true);
+
+    useEffect(() => {
+        getReviews()
+    }, [])
+    // useEffect(() => {
+    //     const thisReview = reviews.find(c => c.id === parseInt(review.id)) || { reviews:[] }
+    //     setReview(thisReview)
+    // }, [])
+
     const query = new URLSearchParams(useLocation().search);
 
     const clinicId = parseInt(query.get("clinicId"))
@@ -43,51 +54,47 @@ export const ReviewForm = () => {
     //             clinicId: clinicId,
     //             comment: review.comment
     //         }
-                
+
     //         addReview(newReview)
     //             .then(() => history.push(`/clinics/detail/${clinic.id})`)
-        
+
     const handleSaveReview = (event) => {
         event.preventDefault()
         // const reviewId = parseInt(review.id)
         const userId = parseInt(localStorage.getItem("VetExpress_user"))
-        
-        
-        if(review.id === 0)
-        {
+
+
+        if (review.id === 0) {
             window.alert("Please leave a review")
         }
-        else
-        {
-            if(review.id)
-            {
+        else {
+            //    setIsLoading(true);
+
+            if (review.id) {
                 updateReview({
                     id: review.id,
                     userId: review.userId,
                     clinicId: review.clinicId,
                     comment: review.comment
                 })
-                .then(() => history.push(`/clinics/detail/${review.clinicId}`))
+                    .then(() => history.push(`/clinics/detail/${clinicId}`))
             }
-            else
-            {
+            else {
                 const newReview = {
-                        userId: userId,
-                        clinicId: clinicId,
-                        comment: review.comment
+                    userId: userId,
+                    clinicId: clinicId,
+                    comment: review.comment
 
                 }
                 addReview(newReview)
-                .then(() => {
-                    history.push(`clinics/detail/${clinicId}`)
-                })
+                    .then(() => {
+                        history.push(`/clinics/detail/${clinicId}`)
+                    })
 
             }
 
         }
     }
-        
-    
 
     return (
         <form className="reviewForm">
@@ -99,8 +106,6 @@ export const ReviewForm = () => {
                 </div>
                 <div id="clinicId" value={review.clinicId}></div>
             </fieldset>
-
-
             <button className="btn btn-primary"
                 onClick={handleSaveReview}>
                 Save My Review

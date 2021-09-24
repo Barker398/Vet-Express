@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { useHistory } from "react-router-dom"
 import { ReviewsContext } from "./ReviewsProvider"
 import { ReviewDetail } from "./ReviewDetail"
@@ -37,7 +37,7 @@ export const ReviewsList = (props) => {
                                 </button>
 
                                 <button onClick={() => {
-                                    history.push(`/reviews/edit/${review.id}`)
+                                   history.push(`/reviews/create?clinicId=${props.clinicId}`)
                                 }}>Edit Review</button>
                             </div>
                         )

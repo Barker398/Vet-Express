@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { ReviewsContext } from "./ReviewsProvider"
+// import React, { useContext, useEffect, useState } from "react"
+
 
 export const ReviewDetail = (props) => {
 
@@ -9,7 +8,7 @@ export const ReviewDetail = (props) => {
         <>
 
             <section className="review" key={`review--${props.review.id}`}>
-                <div className="review__comment">Review: {props.review.comment}</div>
+                <div className="review__comment">{props.review.comment}</div>
             </section>
 
         </>

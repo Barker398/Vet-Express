@@ -8,20 +8,23 @@ export const ReviewsList = (props) => {
 
     const { removeReview } = useContext(ReviewsContext)
 
+  
+    // const { clinicId } = useParams();
     const history = useHistory()
 
     const handleDelete = (reviewId) => {
         removeReview(reviewId)
             .then(() => {
-                history.push("/reviews")
+                history.push("/clinics/detail/clinicId")
+                
             })
     }
-
+    
     return (
         <>
             <h3>Clinic Reviews</h3>
             <button onClick={
-                // history.push needs to be edited.
+    
                 () => history.push(`/reviews/create?clinicId=${props.clinicId}`)
             }>
                 Add a Review Here!
@@ -32,7 +35,7 @@ export const ReviewsList = (props) => {
                     props.reviews.map(review => {
                         return ( <div className="review" key={`review--${review.id}`}>
                                 <ReviewDetail key={review.id} clinicId={review.clinicId} review={review} />
-                                <button onClick={ () => handleDelete(review.id)}>
+                                <button onClick={() => handleDelete(review.id)}>
                                     Delete Review
                                 </button>
 

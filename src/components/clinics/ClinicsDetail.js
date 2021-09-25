@@ -1,19 +1,20 @@
 import React, { useContext, useEffect, useState } from "react"
 import { ClinicContext } from "./ClinicProvider"
-import { useParams } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import { ReviewsList } from "../reviews/ReviewsList"
 
 
 export const ClinicDetail = () => {
 
-    const { clinics, getClinics, favorites, getClinicFavorites, addClinicFavorite } = useContext(ClinicContext)
+    const { clinics, getClinics, getClinicFavorites, addClinicFavorite } = useContext(ClinicContext)
     const [clinic, setClinic] = useState({ reviews:[] })
     // const [favorite, setFavorite] = useState([])
-    const [favoriteClinicCount, setFavoriteClinicCount] = useState(0)
+    // const [favoriteClinicCount, setFavoriteClinicCount] = useState(0)
     const currentUser = parseInt(localStorage.getItem("VetExpress_user"));
 
     const { clinicId } = useParams();
-   
+    const history = useHistory()
+
     useEffect(() => {
         getClinics()
       .then(getClinicFavorites)}, [])
@@ -27,19 +28,22 @@ export const ClinicDetail = () => {
     //     const thisClinic = clinics.find(c => c.id === parseInt(clinicId)) || { reviews:[] }
     //     setClinic(thisClinic)
     // }, [])
+
     const handleClickSaveFavorite = () => {
         addClinicFavorite({
             clinicId:clinic.id,
             userId:currentUser
         } 
         )
-       const count = favoriteClinicCount+1
-        setFavoriteClinicCount(count)
-        console.log("num: ", favoriteClinicCount)
+        .then(() => {
+            history.push("/myclinics")
+        })
+        
     }
     
     return (
         <>
+        <h2>Clinic Information</h2>
         <section className="clinic">
             <h3 className="clinic__name">{clinic.name}</h3>       
                 <img src={clinics.url} />

@@ -13,7 +13,7 @@ export const ClinicList = () => {
 
     return (
         <>
-            <h2>Top Clinics</h2>
+            <h2>Top Vet Clinics</h2>
             <button onClick={
                 () => history.push("/clinics/create")
             }>
@@ -27,7 +27,7 @@ export const ClinicList = () => {
                                         <img src={clinic.url} alt="clinic pictures" />
                                                                            
                                     <Link to={`/clinics/detail/${clinic.id}`}>
-                                        Name of Clinic: {clinic.name}
+                                         {clinic.name}
                                     </Link>
                                 </div>                          
                         )

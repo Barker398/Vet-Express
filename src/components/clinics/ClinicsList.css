@@ -8,13 +8,15 @@
   }
   
   .clinic {
-      flex-basis: 28%;
-      margin: 1em;
+      margin: 2em;
       padding: 1em;
       border: 1px solid goldenrod;
   }
 
   img {
-    width: 40%;
+    width: 32%;
   }
-  
+  a {
+    display: flex;
+    /* float: right; */
+  }

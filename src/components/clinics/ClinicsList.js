@@ -4,7 +4,8 @@ import { ClinicContext } from "./ClinicProvider"
 import "./ClinicsList.css"
 
 export const ClinicList = () => {
-    const { getClinics, clinics } = useContext(ClinicContext)
+    // Used by UI components that need data stored in the context, and exposed by the provider component.
+    const { clinics, getClinics } = useContext(ClinicContext)
     const history = useHistory()
 
     useEffect(() => {
@@ -13,7 +14,7 @@ export const ClinicList = () => {
 
     return (
         <>
-            <h2>Top Clinics</h2>
+            <h2>Top Vet Clinics</h2>
             <button onClick={
                 () => history.push("/clinics/create")
             }>
@@ -21,13 +22,14 @@ export const ClinicList = () => {
             </button>
             <section className="clinics">
                 {
+                    // .map() array method iterates the array of clinics and generate HTML for each one.
                     clinics.map(clinic => {
                         return (                          
                                 <div className="clinic" key={`clinic--${clinic.id}`}>                                   
                                         <img src={clinic.url} alt="clinic pictures" />
                                                                            
                                     <Link to={`/clinics/detail/${clinic.id}`}>
-                                        Name of Clinic: {clinic.name}
+                                         {clinic.name}
                                     </Link>
                                 </div>                          
                         )

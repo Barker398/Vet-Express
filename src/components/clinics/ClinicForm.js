@@ -1,10 +1,13 @@
+// This code imports the main React library, and two functions that it exports.
 import React, { useContext, useEffect, useState } from "react"
 import { ClinicContext } from "../clinics/ClinicProvider"
 import { useHistory } from 'react-router-dom'
 
 export const ClinicForm = () => {
+  // Used by UI components that need data stored in the context, and exposed by the provider component.
   const { addClinic } = useContext(ClinicContext)
-  const { getClinics } = useContext(ClinicContext)
+  // Clinics is the state variable, while getClinics is the function we extract from the cliinics in th API.
+  const { clinics, getClinics } = useContext(ClinicContext)
   
 
   const [clinic, setClinic] = useState({
@@ -19,11 +22,16 @@ export const ClinicForm = () => {
 
   /*
   Reach out to  get clinics state
-   on initialization.
+   on initialization. Only runs one time when the component
   */
   useEffect(() => {
     getClinics()
   }, [])
+
+//   useEffect(() => {
+//     const thisClinic = clinics.find(c => c.id === parseInt(clinic.id)) 
+//     setClinic(thisClinic)
+// }, [clinic])
 
   //when a field changes, update state. The return will re-render and display based on the values in state
   //Controlled component
@@ -67,7 +75,7 @@ export const ClinicForm = () => {
       <fieldset>
         <div className="form-group">
           <label htmlFor="name">Clinic Name:</label>
-          <input type="text" id="name" required autoFocus className="form-control" placeholder="Clinic name" value={clinic.name} onChange={handleControlledInputChange} />
+          <input type="text" id="name" required autoFocus className="form-control" placeholder="Clinic name" value={clinics.name} onChange={handleControlledInputChange} />
         </div>
       </fieldset>
       <fieldset>

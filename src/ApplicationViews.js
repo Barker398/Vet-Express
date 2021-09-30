@@ -18,6 +18,7 @@ export const ApplicationViews = () => {
                     <HomePage />
                     </Route>
                     <Route exact path="/clinics">
+                        {/* ClinicList is a child component of the clinicProvider. */}
                         <ClinicList />
                     </Route>
                     <Route exact path="/clinics/detail/:clinicId(\d+)">
@@ -29,6 +30,7 @@ export const ApplicationViews = () => {
                     {/* <Route exact path="/clinics/detail/:clinicId(\d+)">
                         <ReviewsList />
                     </Route> */}
+                    {/* reviewId is the parameter passed on the url. */}
                     <Route path="/reviews/edit/:reviewId(\d+)">
                         <ReviewForm />
                     </Route>

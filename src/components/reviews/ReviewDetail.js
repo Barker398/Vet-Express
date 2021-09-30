@@ -1,6 +1,4 @@
-
 export const ReviewDetail = (props) => {
-
 
     return (
         <>

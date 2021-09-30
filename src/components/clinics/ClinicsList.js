@@ -4,6 +4,7 @@ import { ClinicContext } from "./ClinicProvider"
 import "./ClinicsList.css"
 
 export const ClinicList = () => {
+    // Used by UI components that need data stored in the context, and exposed by the provider component.
     const { clinics, getClinics } = useContext(ClinicContext)
     const history = useHistory()
 
@@ -21,6 +22,7 @@ export const ClinicList = () => {
             </button>
             <section className="clinics">
                 {
+                    // .map() array method iterates the array of clinics and generate HTML for each one.
                     clinics.map(clinic => {
                         return (                          
                                 <div className="clinic" key={`clinic--${clinic.id}`}>                                   

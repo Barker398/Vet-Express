@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./NavBar.css"
 
+// exporting the NavBar function.
 export const NavBar = () => {
   
   const history = useHistory()

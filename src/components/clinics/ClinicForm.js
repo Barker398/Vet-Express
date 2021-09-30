@@ -1,9 +1,12 @@
+// This code imports the main React library, and two functions that it exports.
 import React, { useContext, useEffect, useState } from "react"
 import { ClinicContext } from "../clinics/ClinicProvider"
 import { useHistory } from 'react-router-dom'
 
 export const ClinicForm = () => {
+  // Used by UI components that need data stored in the context, and exposed by the provider component.
   const { addClinic } = useContext(ClinicContext)
+  // Clinics is the state variable, while getClinics is the function we extract from the cliinics in th API.
   const { clinics, getClinics } = useContext(ClinicContext)
   
 
@@ -19,7 +22,7 @@ export const ClinicForm = () => {
 
   /*
   Reach out to  get clinics state
-   on initialization.
+   on initialization. Only runs one time when the component
   */
   useEffect(() => {
     getClinics()

@@ -8,16 +8,24 @@ export const ClinicDetail = () => {
 
     const { clinics, getClinics, getClinicFavorites, addClinicFavorite } = useContext(ClinicContext)
     const [clinic, setClinic] = useState({ reviews:[] })
+    const [ changeHeard, setChange ] = useState(true)
+    
+    const toggleChange = () => {changeHeard ? setChange(false) : setChange(true)}
+
     // const [favorite, setFavorite] = useState([])
     // const [favoriteClinicCount, setFavoriteClinicCount] = useState(0)
     const currentUser = parseInt(localStorage.getItem("VetExpress_user"));
 
     const { clinicId } = useParams();
+
     const history = useHistory()
 
+    // useEffect, once you get clinics, you want the page to show the clinicFavorites.
     useEffect(() => {
         getClinics()
-      .then(getClinicFavorites)}, [])
+        // without the empty square brackets the code inside would run on every render.
+        // with them the code inside will only run once.
+      .then(getClinicFavorites)}, [changeHeard])
 
     useEffect(() => {
         const thisClinic = clinics.find(c => c.id === parseInt(clinicId)) || { reviews:[] }
@@ -55,7 +63,7 @@ export const ClinicDetail = () => {
 
         </section>
         
-        <ReviewsList reviews={clinic.reviews} clinicId={clinic.id}/> 
+        <ReviewsList reviews={clinic.reviews} clinicId={clinic.id} func={toggleChange}/> 
         
         </>
     )

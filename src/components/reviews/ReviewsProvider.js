@@ -12,9 +12,9 @@ const getReviews = () => {
         .then(res => res.json())
         .then(setReviews)
 }
-
+// why does review/1 return an object and reviews?id=1 will return an array?
 const getReviewById = (reviewId) => {
-    return fetch(`http://localhost:8088/reviews?id=${reviewId}`)
+    return fetch(`http://localhost:8088/reviews/${reviewId}`)
     .then(res => res.json())
     
 }

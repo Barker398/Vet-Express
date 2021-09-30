@@ -18,5 +18,6 @@
   }
   a {
     display: flex;
-    /* float: right; */
+    float: right;
+    font-size: 22px;
   }

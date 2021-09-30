@@ -1,6 +1,6 @@
 // import userEvent from "@testing-library/user-event"
 import React, { useContext, useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+// import { Link, useParams } from "react-router-dom"
 // import { ClinicContext } from "../clinics/ClinicProvider"
 // 
 import { ClinicContext } from "../clinics/ClinicProvider"

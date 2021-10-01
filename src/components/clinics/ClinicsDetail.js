@@ -44,7 +44,7 @@ export const ClinicDetail = () => {
         } 
         )
         .then(() => {
-            history.push("/myclinics")
+            history.push("/myClinics")
         })
         
     }

@@ -36,10 +36,17 @@ const addClinic = clinicObj => {
 }
 
 const getClinicFavorites = () => {
-    return fetch("http://localhost:8088/favorites")
+    return fetch("http://localhost:8088/favorites?_expand=clinic")
         .then(res => res.json())
         .then(setFavorites)
 }
+
+// const getClinicFavoritesById = (userId) => {
+//     return fetch("http://localhost:8088/favorites?_expand=user")
+//         .then(res => res.json())
+//         .then(setFavorites)
+// }
+
 
 const addClinicFavorite = clinicObj => {
     return fetch("http://localhost:8088/favorites", {

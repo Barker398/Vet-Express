@@ -37,7 +37,7 @@ export const ApplicationViews = () => {
                     <Route path="/reviews/create">
                         <ReviewForm />
                     </Route>
-                    <Route exact path="/myclinics">
+                    <Route path="/myClinics">
                     <MyClinics />
                     </Route>
                 </ReviewsProvider>

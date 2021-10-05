@@ -1,8 +1,4 @@
-// import userEvent from "@testing-library/user-event"
 import React, { useContext, useEffect } from "react"
-// import { Link, useParams } from "react-router-dom"
-// import { ClinicContext } from "../clinics/ClinicProvider"
-// 
 import { ClinicContext } from "../clinics/ClinicProvider"
 import "./MyClinics.css"
 
@@ -15,39 +11,11 @@ export const MyClinics = () => {
     useEffect(() => {
         getClinics()
         getClinicFavorites()
-        console.log("this effect is done.")
     }, [])
 
     useEffect(() => {
-        console.log(clinics)
-        console.log(favorites)
     }, [clinics, favorites])
 
-    // const findFavorite = () => {
-    //     const currentFavorites = favorites.filter(clinic => {
-    //         if (clinic.userId === parseInt(localStorage.getItem("VetExpress_user"))) {
-    //             return (clinic)
-    //         }
-    //     })
-    //     setFavorites(currentFavorites)
-    // }
-    // useEffect(() => {
-    //     findFavorite()
-    //     .then(() => {
-    //     const currentClinics = clinicFavorites.filter((clinic) => {
-    //         return (clinic.clinicId)
-    //     })
-    //     const favoriteClinics = clinics.filter((clinic) => {
-    //         if (clinic.id in currentClinics) {
-    //             return (clinic)
-    //         }
-    //     })
-    //     setFavClinics(favoriteClinics)
-    // })
-    // }, [favorites])
-
-
-    // debugger
     return (
         <>
             <h1>My Clinics</h1>

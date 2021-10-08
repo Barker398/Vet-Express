@@ -11,6 +11,9 @@
       margin: 2em;
       padding: 1em;
       border: 1px solid goldenrod;
+      height: 530px;
+      width: 65%;
+      background-color: lightseagreen;
   }
 
   img {
@@ -21,3 +24,26 @@
     float: right;
     font-size: 22px;
   }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  div.clinic{
+    text-align: center;
+    
+  }
+
+  *{
+    align-content: space-around;
+  }
+
+  button.clinicName{
+    text-align: center;
+  }
+
+  
+

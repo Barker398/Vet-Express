@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { ClinicContext } from "./ClinicProvider"
 import { useHistory, useParams } from "react-router-dom"
 import { ReviewsList } from "../reviews/ReviewsList"
+import "./ClinicsDetail.css"
 
 
 export const ClinicDetail = () => {

@@ -24,6 +24,7 @@ export const ClinicList = () => {
                 {
                     // .map() array method iterates the array of clinics and generate HTML for each one.
                     clinics.map(clinic => {
+
                         return (                          
                                 <div className="clinic" key={`clinic--${clinic.id}`}>                                   
                                         <img className="list" src={clinic.url} alt="clinic pictures" />
@@ -31,7 +32,7 @@ export const ClinicList = () => {
                                     <Link to={`/clinics/detail/${clinic.id}`}>
                                          {clinic.name}
                                     </Link>
-                                </div>                          
+
                         )
                     })
                 }

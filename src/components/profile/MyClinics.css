@@ -6,6 +6,15 @@
 }
 
 h3 {
-    display: flex;
+    /* display: flex; */
     /* float: right; */
+}
+
+.MyPets {
+   
+}
+
+.clinic__name {
+   justify-content: center;
+    font-family: serif;
 }

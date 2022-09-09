@@ -12,6 +12,8 @@
       padding: 1em;
       border: 1px solid goldenrod;
       display: inline-block;
+      height: 342px;
+      width: 65%;
   }
 
   img.list {

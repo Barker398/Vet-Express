@@ -32,11 +32,6 @@ export const ClinicDetail = () => {
         setClinic(thisClinic)
     }, [clinics])
 
-    // useEffect(() => {
-    //     const thisClinic = clinics.find(c => c.id === parseInt(clinicId)) || { reviews:[] }
-    //     setClinic(thisClinic)
-    // }, [])
-
     const handleClickSaveFavorite = () => {
         addClinicFavorite({
             clinicId:clinic.id,

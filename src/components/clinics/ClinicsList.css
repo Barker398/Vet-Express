@@ -11,13 +11,13 @@
       margin: 2em;
       padding: 1em;
       border: 1px solid goldenrod;
-      height: 342px;
-      width: 65%;
+      display: inline-block;
   }
 
-  img {
-    width: 32%;
+  img.list {
+    width: 30%;
   }
+  
   a {
     display: flex;
     float: right;

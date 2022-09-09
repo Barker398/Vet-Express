@@ -27,9 +27,6 @@ export const ApplicationViews = () => {
                     <Route path="/clinics/create">
                         <ClinicForm />
                     </Route>
-                    {/* <Route exact path="/clinics/detail/:clinicId(\d+)">
-                        <ReviewsList />
-                    </Route> */}
                     {/* reviewId is the parameter passed on the url. */}
                     <Route path="/reviews/edit/:reviewId(\d+)">
                         <ReviewForm />

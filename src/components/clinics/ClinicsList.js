@@ -24,30 +24,15 @@ export const ClinicList = () => {
                 {
                     // .map() array method iterates the array of clinics and generate HTML for each one.
                     clinics.map(clinic => {
-                        return (
-                            <div className="clinic" key={`clinic--${clinic.id}`}>
-                                <img src={clinic.url} alt="clinic pictures" />
 
-                                <Link to={`/clinics/detail/${clinic.id}`}>
-                                    {clinic.name}
-                                </Link>
-                                <div className="clinic__name">
-                                    Name of Clinic: {clinic.name}
-                                </div>
-                                <div className="clinic__address">
-                                    Location: {clinic.address}
-                                </div>
-                                <div className="clinic__services">
-                                    Provided Services: {clinic.services}
-                                </div>
-                                <div className="clinic__hours">
-                                    Hours of Operation: {clinic.hours}
-                                </div>
-                                <div className="clinic__phoneNumber">
-                                    Contact: {clinic.phoneNumber}
-                                </div>
+                        return (                          
+                                <div className="clinic" key={`clinic--${clinic.id}`}>                                   
+                                        <img className="list" src={clinic.url} alt="clinic pictures" />
+                                                                           
+                                    <Link to={`/clinics/detail/${clinic.id}`}>
+                                         {clinic.name}
+                                    </Link>
 
-                            </div>
                         )
                     })
                 }

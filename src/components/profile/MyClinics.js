@@ -4,10 +4,7 @@ import "./MyClinics.css"
 
 export const MyClinics = () => {
     const { clinics, getClinics, favorites, getClinicFavorites } = useContext(ClinicContext)
-    // const { clinicId } = useParams()
-    // const [clinicFavorites, setFavorites] = useState([])
-    // const [favClinics, setFavClinics] = useState([])
-
+ 
     useEffect(() => {
         getClinics()
         getClinicFavorites()

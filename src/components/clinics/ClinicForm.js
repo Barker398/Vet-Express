@@ -28,11 +28,6 @@ export const ClinicForm = () => {
     getClinics()
   }, [])
 
-//   useEffect(() => {
-//     const thisClinic = clinics.find(c => c.id === parseInt(clinic.id)) 
-//     setClinic(thisClinic)
-// }, [clinic])
-
   //when a field changes, update state. The return will re-render and display based on the values in state
   //Controlled component
   const handleControlledInputChange = (event) => {

@@ -41,13 +41,6 @@ const getClinicFavorites = () => {
         .then(setFavorites)
 }
 
-// const getClinicFavoritesById = (userId) => {
-//     return fetch("http://localhost:8088/favorites?_expand=user")
-//         .then(res => res.json())
-//         .then(setFavorites)
-// }
-
-
 const addClinicFavorite = clinicObj => {
     return fetch("http://localhost:8088/favorites", {
         method: "POST",

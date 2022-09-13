@@ -17,7 +17,13 @@
 
   img.list {
     width: 32%;
+      display: inline-block;
   }
+
+  img.list {
+    width: 30%;
+  }
+  
   a {
     display: flex;
     float: right;

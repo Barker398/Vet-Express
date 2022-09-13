@@ -13,6 +13,7 @@
       border: 1px solid goldenrod;
 
 
+
       height: 342px;
       width: 65%;
   }
@@ -21,6 +22,11 @@
     width: 32%;
 
       display: inline-block;
+
+      display: inline-block;
+      height: 342px;
+      width: 65%;
+
   }
 
   img.list {

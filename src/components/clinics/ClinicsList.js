@@ -15,11 +15,7 @@ export const ClinicList = () => {
     return (
         <>
             <h2>Top Vet Clinics</h2>
-            <button onClick={
-                () => history.push("/clinics/create")
-            }>
-                Add a Clinic
-            </button>
+
             <section className="clinics">
                 {
                     // .map() array method iterates the array of clinics and generate HTML for each one.
@@ -36,6 +32,11 @@ export const ClinicList = () => {
                     })
                 }
             </section>
+            <button className="add" onClick={
+                () => history.push("/clinics/create")
+            }>
+                Add a Clinic
+            </button>
         </>
     )
 }

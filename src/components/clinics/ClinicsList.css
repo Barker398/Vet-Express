@@ -15,11 +15,15 @@
       width: 65%;
   }
 
-  img {
+  img.list {
     width: 32%;
   }
   a {
     display: flex;
     float: right;
     font-size: 22px;
+  }
+
+  button.add {
+    display: block;
   }

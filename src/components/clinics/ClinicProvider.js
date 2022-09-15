@@ -52,6 +52,13 @@ const addClinicFavorite = clinicObj => {
     .then(getClinicFavorites)
 }
 
+const removeFavClinic = clinicId => {
+    return fetch(`http://localhost:8088/clinics/${clinicId}`, {
+        method: "DELETE"
+    })
+    .then(getClinicFavorites)
+}
+
 /*
         You return a context provider which has the
         `clinics` state, `getClinics` function,
@@ -60,7 +67,8 @@ const addClinicFavorite = clinicObj => {
     */
 return (
     <ClinicContext.Provider value={{
-        clinics, getClinics, addClinic, favorites, setFavorites, addClinicFavorite, getClinicFavorites
+        clinics, getClinics, addClinic, favorites, setFavorites, addClinicFavorite, getClinicFavorites,
+        removeFavClinic
     }}>
         {props.children}
     </ClinicContext.Provider>

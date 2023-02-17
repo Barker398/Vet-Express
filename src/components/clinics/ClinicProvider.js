@@ -58,11 +58,27 @@ export const ClinicProvider = (props) => {
             and the `addClinic` function as keys. This
             allows any child elements to access them.
         */
+
+    const removeFavClinic = clinicId => {
+        return fetch(`http://localhost:8088/clinics/${clinicId}`, {
+            method: "DELETE"
+        })
+            .then(getClinicFavorites)
+    }
+
+    /*
+            You return a context provider which has the
+            `clinics` state, `getClinics` function,
+            and the `addClinic` function as keys. This
+            allows any child elements to access them.
+        */
     return (
         <ClinicContext.Provider value={{
-            clinics, getClinics, addClinic, favorites, setFavorites, addClinicFavorite, getClinicFavorites
+            clinics, getClinics, addClinic, favorites, setFavorites, addClinicFavorite, getClinicFavorites,
+            removeFavClinic
         }}>
             {props.children}
         </ClinicContext.Provider>
     )
+>>>>>>> 500ca23c420a5c71e5d6d3869d253c88f66b151d
 }

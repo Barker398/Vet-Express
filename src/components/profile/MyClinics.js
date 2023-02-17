@@ -3,7 +3,8 @@ import { ClinicContext } from "../clinics/ClinicProvider"
 import "./MyClinics.css"
 
 export const MyClinics = () => {
-    const { clinics, getClinics, favorites, getClinicFavorites } = useContext(ClinicContext)
+
+    const { clinics, getClinics, favorites, getClinicFavorites, removeFavClinic } = useContext(ClinicContext)
 
     useEffect(() => {
         getClinics()
@@ -12,6 +13,11 @@ export const MyClinics = () => {
 
     useEffect(() => {
     }, [clinics, favorites])
+
+    const handleDelete = (clinicId) => {
+        removeFavClinic(clinicId)
+            .then(getClinicFavorites)
+    }
 
     return (
         <>
@@ -36,6 +42,9 @@ export const MyClinics = () => {
                                 <div className="clinic__services">Services Provided: {favClinic.clinic.services}</div>
                                 <div className="clinic__hours">Hours of Operation: {favClinic.clinic.hours}</div>
                                 <div className="clinic__phoneNumber">Contact: {favClinic.clinic.phoneNumber}</div>
+                                <button className="delete" onClick={() => handleDelete(favClinic.id)}>
+                                    Remove Clinic
+                                </button>
                             </section>
                         )
                     })

@@ -8,7 +8,7 @@ export const ClinicForm = () => {
   const { addClinic } = useContext(ClinicContext)
   // Clinics is the state variable, while getClinics is the function we extract from the cliinics in th API.
   const { clinics, getClinics } = useContext(ClinicContext)
-  
+
 
   const [clinic, setClinic] = useState({
     name: "",
@@ -46,18 +46,18 @@ export const ClinicForm = () => {
     event.preventDefault() //Prevents the browser from submitting the form
 
     const clinicId = parseInt(clinic.id)
-    
+
 
     if (clinicId === 0) {
       window.alert("Please add a Clinic")
     } else {
-    
+
       const newClinic = {
-       name: clinic.name,
-       address: clinic.address,
-       services: clinic.services,
-       hours: clinic.hours,
-       phoneNumber: clinic.phoneNumber
+        name: clinic.name,
+        address: clinic.address,
+        services: clinic.services,
+        hours: clinic.hours,
+        phoneNumber: clinic.phoneNumber
       }
       addClinic(newClinic)
         .then(() => history.push("/clinics"))
@@ -99,7 +99,7 @@ export const ClinicForm = () => {
       </fieldset>
       <button className="btn btn-primary" onClick={handleClickSaveClinic}>
         Save My Clinic
-          </button>
+      </button>
     </form>
   )
 }

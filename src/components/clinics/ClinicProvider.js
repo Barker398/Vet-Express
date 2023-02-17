@@ -80,5 +80,5 @@ export const ClinicProvider = (props) => {
             {props.children}
         </ClinicContext.Provider>
     )
->>>>>>> 500ca23c420a5c71e5d6d3869d253c88f66b151d
+
 }

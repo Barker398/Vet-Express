@@ -4,7 +4,7 @@ import "./MyClinics.css"
 
 export const MyClinics = () => {
     const { clinics, getClinics, favorites, getClinicFavorites } = useContext(ClinicContext)
- 
+
     useEffect(() => {
         getClinics()
         getClinicFavorites()

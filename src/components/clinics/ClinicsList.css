@@ -1,25 +1,24 @@
-
 .clinics {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: column;
-    margin: 1rem;
-  }
-  
-  .clinic {
-      margin: 2em;
-      padding: 1em;
-      border: 1px solid goldenrod;
-      display: inline-block;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 1rem;
+}
 
-  img.list {
-    width: 30%;
-  }
-  
-  a {
-    display: flex;
-    float: right;
-    font-size: 22px;
-  }
+.clinic {
+  margin: 2em;
+  padding: 1em;
+  border: 1px solid goldenrod;
+  display: inline-block;
+}
+
+img.list {
+  width: 30%;
+}
+
+a {
+  display: flex;
+  float: right;
+  font-size: 22px;
+}

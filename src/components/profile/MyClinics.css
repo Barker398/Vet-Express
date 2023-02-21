@@ -5,16 +5,7 @@
     border: 5px solid blue;
 }
 
-h3 {
-    /* display: flex; */
-    /* float: right; */
-}
-
-.MyPets {
-   
-}
-
 .clinic__name {
-   justify-content: center;
+    justify-content: center;
     font-family: serif;
 }

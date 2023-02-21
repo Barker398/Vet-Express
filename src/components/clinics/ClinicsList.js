@@ -22,18 +22,11 @@ export const ClinicList = () => {
                     clinics.map(clinic => {
                         return (
                             <div className="clinic" key={`clinic--${clinic.id}`}>
-<<<<<<< HEAD
-                                <Link to={`/clinics/detail/${clinic.id}`}>
-                                    {clinic.name}
-                                </Link>
-                                <img className="list" src={clinic.url} alt="clinic pictures" />
-=======
                                 <img className="list" src={clinic.url} alt="clinic pictures" />
 
                                 <Link to={`/clinics/detail/${clinic.id}`}>
                                     {clinic.name}
                                 </Link>
->>>>>>> mvp-working
                             </div>
                         )
                     })

@@ -15,7 +15,7 @@ export const ApplicationViews = () => {
             <ClinicProvider>
                 <ReviewsProvider>
                     <Route exact path="/home">
-                    <HomePage />
+                        <HomePage />
                     </Route>
                     <Route exact path="/clinics">
                         {/* ClinicList is a child component of the clinicProvider. */}
@@ -35,7 +35,7 @@ export const ApplicationViews = () => {
                         <ReviewForm />
                     </Route>
                     <Route path="/myClinics">
-                    <MyClinics />
+                        <MyClinics />
                     </Route>
                 </ReviewsProvider>
             </ClinicProvider>

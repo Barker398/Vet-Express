@@ -1,34 +1,26 @@
 .clinics {
-<<<<<<< HEAD
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: column;
-    margin: 1rem;
-  }
-  
-  .clinic {
-      margin: 2em;
-      padding: 1em;
-      height: 95%;
-      width: 65%;
-  }
-  
-  a {
-    display: block;
-    float: none;
-    font-size: 22px;
-  }
-
-  button.add {
-    display: block;
-  }
-=======
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: column;
   margin: 1rem;
+}
+
+.clinic {
+  margin: 2em;
+  padding: 1em;
+  height: 95%;
+  width: 65%;
+}
+
+a {
+  display: block;
+  float: none;
+  font-size: 22px;
+}
+
+button.add {
+  display: block;
 }
 
 .clinic {
@@ -41,10 +33,3 @@
 img.list {
   width: 30%;
 }
-
-a {
-  display: flex;
-  float: right;
-  font-size: 22px;
-}
->>>>>>> mvp-working

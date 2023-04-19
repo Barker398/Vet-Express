@@ -37,6 +37,7 @@ export const ClinicList = () => {
             }>
                 Add a Clinic
             </button>
+
         </>
     )
 }
